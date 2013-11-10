@@ -82,7 +82,8 @@
   var stats;
 
   // clock
-  var clock = new THREE.Clock(), lastTime = 0;
+  var clock = new THREE.Clock();
+  var time = oldTime = 0;
 
   // controls
   var control;
@@ -150,15 +151,18 @@
     stats.update();
     control.update();
 
-    var time = clock.getElapsedTime() * 10;
-    var delta = clock.getDelta() * 10000;
-    console.log(time)
+    time = clock.getElapsedTime() * 10;
+    //console.log(delta)
     // scale the cube
-    for (var i = 0; i < cubes.length; i++) {
-      if (time >= i) {
-        cubes[i].scale();
+    if (time - oldTime >= 0.18) {
+      for (var i = 0; i < cubes.length; i++) {
+        if (time >= i) {
+          cubes[i].scale();
+        }
       }
     }
+
+    oldTime = time;
 
     render();
   }
