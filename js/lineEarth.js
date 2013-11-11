@@ -108,13 +108,13 @@
     var h_step = Math.PI / imageH;
 
     for (i = 0; i < array.length; i++) {
-      // transfer to latitude and longtitude
+      // transfer coordinate in the map to latitude and longtitude
       var x = array[i].x * w_step; // -180 ~ 180
       var y = (array[i].y) * h_step; // -90 ~ 90
       var s = array[i].scale / (255 * 3);
       var color = array[i].color;
 
-      // transfer spherical coordinate to real xyz coordinate
+      // transfer latitude and longtitude to real xyz coordinate
       var vertex1 = new THREE.Vector3();
       vertex1.x = radius * Math.cos(y) * Math.cos(x);
       vertex1.y = radius * Math.cos(y) * Math.sin(x);
