@@ -52,7 +52,6 @@
 
       var pixels = context.getImageData(0, 0, imageW, imageH).data;
       var index = 0;
-      var modCount = 0;
 
       for (var x = 0; x < imageW; x++) {
         for (var y = 0; y < imageH; y++) {
@@ -69,10 +68,9 @@
 
           var sum = r + g + b;
 
-          var value = {x: x - imageW / 2, y: y - imageH / 2, scale: sum, color: color, mod: modCount};
+          var value = {x: x - imageW / 2, y: y - imageH / 2, scale: sum, color: color};
           array.push(value);
         }
-        ++modCount;
       }
 
       init();
@@ -106,18 +104,13 @@
     var geometry = new THREE.Geometry();
     var colors = [];
 
-    var w_step = Math.PI * 2 / 512;
-    var h_step = Math.PI / 256;
+    var w_step = Math.PI * 2 / imageW;
+    var h_step = Math.PI / imageH;
 
     for (i = 0; i < array.length; i++) {
-      //var yy = 0;
-      //if (array[i].mod % 2 == 0) {
-      //  yy = 0.5;
-      //}
-
-      // transfer latitude and longtitude to spherical coordinate
-      var x = array[i].x * w_step;
-      var y = (array[i].y) * h_step;
+      // transfer to latitude and longtitude
+      var x = array[i].x * w_step; // -180 ~ 180
+      var y = (array[i].y) * h_step; // -90 ~ 90
       var s = array[i].scale / (255 * 3);
       var color = array[i].color;
 
