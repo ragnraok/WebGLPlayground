@@ -13,6 +13,7 @@
   var samples = 2048;
   var isLoad = false;
   var limit = 80;
+  var stats;
 
   init();
   animate();
@@ -34,6 +35,11 @@
     scene.add(camera);
 
     controls = new THREEx.DragPanControls(camera);
+
+    stats = new Stats();
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.top = '0px';
+    container.appendChild(stats.domElement);
 
     var material = new THREE.ParticleBasicMaterial({
       map: THREE.ImageUtils.loadTexture('img/particle01.png'),
@@ -63,6 +69,7 @@
   function animate() {
     requestAnimationFrame(animate);
     controls.update();
+    stats.update();
 
     render();
   }
