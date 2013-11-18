@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style type="text/css">
+      #loading {
+        text-align: center;
+        font-size: 40px;
+        margin-top: 300px;
+        margin-bottom: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="loading">Loading Music....</div>
+    <script type="text/javascript" src="lib/three.min.js"></script>
+    <script type="text/javascript" src="lib/Detector.js"></script>
+    <script type="text/javascript" src="lib/Stats.js"></script>
+    <script type="text/javascript" src="lib/controls/TrackballControls.js"></script>
+    <script type="text/javascript" src="lib/controls/threex.dragpancontrols.js"></script>
+    <script type="text/javascript">
+      if (!Detector.webgl) {
+        Detector.addGetWebGLMessage();
+      }
+    </script>
+    <script type="text/javascript" src="js/visMusic2.js"></script>
+  </body>
+</html>
