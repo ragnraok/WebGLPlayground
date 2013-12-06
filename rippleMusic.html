@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style type="text/css">
+      #loading {
+        text-align: center;
+        font-size: 40px;
+        margin-top: 300px;
+        margin-bottom: 300px;
+      }
+      #prompt {
+        color: #FFFFF0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading"><p id="prompt">Loading Music....</p></div>
+    <div id="container"></div>
+    <script type="text/javascript" src="lib/three.min.js"></script>
+    <script type="text/javascript" src="lib/Detector.js"></script>
+    <script type="text/javascript" src="lib/Stats.js"></script>
+    <script type="text/javascript" src="lib/controls/OrbitControls.js"></script>
+    <script type="text/javascript">
+      if (!Detector.webgl) {
+        Detector.addGetWebGLMessage();
+      }
+    </script>
+    <script type="text/javascript" src="js/rippleMusic2.js"></script>
+  </body>
+</html>
