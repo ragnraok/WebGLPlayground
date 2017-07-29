@@ -107,9 +107,9 @@
         this.analyser.fftSize = this.samples;
 
         source.connect(this.analyser);
-        source.connect(this.context.destination);
+        this.analyser.connect(this.context.destination);
 
-        source.noteOn(0);
+        source.start();
 
         console.log('finished load');
         this.isFinishLoaded = true;
@@ -175,7 +175,7 @@
       this.geometry.vertices = [];
 
       this.material = new THREE.ParticleBasicMaterial({
-        map: THREE.ImageUtils.loadTexture('img/particle01.png'),
+        map: THREE.ImageUtils.loadTexture('img/particle.png'),
         blending: THREE.AdditiveBlending,
         depthTest: false,
         size: this.particleSize,
@@ -209,6 +209,7 @@
     updateMusicData: function() {
       if (this.audioProcessor.isLoaded()) {
         this.levels.push(this.audioProcessor.getAvgVolume());
+
 
         var timeData = this.processTimeData(this.audioProcessor.getTimeData());
         this.waves.push(timeData);

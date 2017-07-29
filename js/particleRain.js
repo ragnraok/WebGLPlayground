@@ -49,7 +49,8 @@ function init () {
                                                   size: 15,
                                                   map: textureMap,
                                                   blending: THREE.AdditiveBlending,
-                                                  transparent: true});
+                                                  transparent: true,
+                                                  opacity: 0.5 });
   for (var p = 0; p < particleNum; p++) {
     // create particles with random position
     var pX = Math.random() * SCREEN_WIDTH - halfWidth;
