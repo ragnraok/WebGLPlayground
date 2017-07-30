@@ -42,7 +42,7 @@
     container.appendChild(stats.domElement);
 
     var material = new THREE.ParticleBasicMaterial({
-      map: THREE.ImageUtils.loadTexture('img/particle01.png'),
+      map: THREE.ImageUtils.loadTexture('img/particle.png'),
       blending: THREE.AdditiveBlending,
       transparent: true,
       depthTest: false,
@@ -96,7 +96,7 @@
     var container = document.getElementById('container');
     container.style.display = 'none';
 
-    context = new webkitAudioContext();
+    context = new AudioContext();
     var req = new XMLHttpRequest();
     req.open('GET', 'assets/titan.mp3', true);
     req.responseType = "arraybuffer";
@@ -120,7 +120,9 @@
     source.connect(analyser);
     source.connect(context.destination);;
 
-    source.noteOn(0);
+    source.start();
+
+    // source.noteOn(0);
     isLoad = true;
 
     var loading = document.getElementById('loading');

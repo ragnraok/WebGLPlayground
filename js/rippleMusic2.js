@@ -63,7 +63,7 @@
   }
 
   AudioProcessor = function(filename) {
-    this.context = new webkitAudioContext();
+    this.context = new AudioContext();
     this.isFinishLoaded = false;
     this.samples = 1024;
     this.isEnd = false;
